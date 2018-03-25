@@ -1,0 +1,26 @@
+.one-click-img-wrap{
+	position: fixed;
+	width: 100%;
+	top:0;
+	z-index: 99999;
+	overflow: scroll;
+}
+#one-click-img-canvas{
+	width: 100%;
+}
+.one-click-cover{
+	z-index: 9999999;
+	position: fixed;
+	top:0;
+	display: none;
+	width: 100%;
+	cursor: pointer
+}
+.click1-picker-mode .one-click-cover{
+	display: block;
+}
+.one-click-cover-color{
+	width: 500px;
+	height: 30px;
+
+}
