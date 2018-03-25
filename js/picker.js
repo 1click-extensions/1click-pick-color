@@ -1,5 +1,3 @@
-console.log('ddd');
-
 function rgbaToHex (rgba) {
     var parts = rgba.substring(rgba.indexOf("(")).split(","),
         r = parseInt((parts[0].substring(1).trim()), 10),
@@ -13,8 +11,10 @@ var divCover  = document.createElement('div');
 	divCover.className = "one-click-cover";
 	divCover.style.height = window.innerHeight + 'px';
 	divCover.innerHTML = '<div class="one-click-cover-color">' + 
-							'<span class="one-click-cover-rgba"></span>' +
-							'<span class="one-click-cover-hash"></span>' +
+							'<input type="test" class="one-click-cover-input one-click-cover-rgba"/>' +
+							'<input type="test" class="one-click-cover-input one-click-cover-hash"/>' +
+							'<span class="one-click-cover-example"></span>' +
+							'<span class="one-click-cover-before-select">Select color</span>' +
 							'<button type="button">Close</button>' +
 							'</div>';
 	document.body.append(divCover);
@@ -58,15 +58,17 @@ chrome.runtime.onMessage.addListener(function(message){
            
            // console.log(yConverted,xConverted);
            	let pixelData = canvas.getContext('2d').getImageData(message.data.x, message.data.y, 1, 1).data;
-           	console.log(pixelData);
+           	//console.log(pixelData);
            	let show = document.getElementsByClassName('one-click-cover-color')[0],
+           		example = document.getElementsByClassName('one-click-cover-example')[0],
            		rgba = 	document.getElementsByClassName('one-click-cover-rgba')[0],
            		hash = 	document.getElementsByClassName('one-click-cover-hash')[0],
-           		rgbData = [pixelData[0],pixelData[1],pixelData[2],pixelData[3]];
+           		rgbData = [pixelData[0],pixelData[1],pixelData[2],pixelData[3]].join(', ');
 
-           	rgba.innerText = 'rgba(' + rgbData.join(', ') + ')';
-           	hash.innerText = rgbaToHex('(' + rgbData.join(', ') + ')');
-           	show.style['background-color'] = rgba.innerText;
+           	rgba.innerText = 'rgba(' + rgbData + ')';
+           	hash.innerText = rgbaToHex('(' + rgbData + ')');
+           	example.style['background-color'] = rgba.innerText;
+           	show.classList.add('one-click-cover-color-selected');
          }
          //document.body.appendChild(image);
          image.src = message.image;
