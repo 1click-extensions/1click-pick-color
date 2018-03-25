@@ -43,26 +43,4 @@ chrome.runtime.onMessage.addListener(
           });
         break;
     }
-    // chrome.tabs.query({'active': true},function(curTabs){
-    //     console.log(curTabs)
-    //     if(curTabs[0] && curTabs[0] && curTabs[0].id){
-    //       //console.log(curTabs[0].id, img);
-    //       chrome.tabs.sendMessage(curTabs[0].id, {action:'showCover'});
-    //   }
-    // });
-    // console.log(request, sender);
-    // if (request)
-    //   sendResponse({farewell: "goodbye"});
-  });
-//   console.log('click');
-//   chrome.tabs.captureVisibleTab(null,null, function(img){
-    
-//     chrome.tabs.query({'active': true},function(curTabs){
-//       console.log(curTabs)
-//       if(curTabs[0] && curTabs[0] && curTabs[0].id){
-//         //console.log(curTabs[0].id, img);
-//         chrome.tabs.sendMessage(curTabs[0].id, img);
-//       }
-//     });
-//   });
-// });
+});

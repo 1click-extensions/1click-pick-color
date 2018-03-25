@@ -11,15 +11,18 @@ var divCover  = document.createElement('div');
 	divCover.className = "one-click-cover";
 	divCover.style.height = window.innerHeight + 'px';
 	divCover.innerHTML = '<div class="one-click-cover-color">' + 
-							'<input type="test" class="one-click-cover-input one-click-cover-rgba"/>' +
-							'<input type="test" class="one-click-cover-input one-click-cover-hash"/>' +
-							'<span class="one-click-cover-example"></span>' +
-							'<span class="one-click-cover-before-select">Select color</span>' +
-							'<button type="button">Close</button>' +
+							'<span class="one-click-cover-child one-click-cover-input ">RGBA: <input type="test" class="one-click-cover-rgba"/></span>' +
+							'<span class="one-click-cover-child one-click-cover-input ">HEX: <input type="test" class="one-click-cover-input one-click-cover-hash"/></span>' +
+							'<span class="one-click-cover-child one-click-cover-example"></span>' +
+							'<span class="one-click-cover-child one-click-cover-before-select">Choose color from page</span>' +
+							'<button type="button" class="one-click-cover-child one-click-cover-close">X</button>' +
 							'</div>';
 	document.body.append(divCover);
 	divCover.querySelector('button').onclick = function(){
 		document.getElementsByTagName('html')[0].classList.remove('click1-picker-mode');
+	}
+	divCover.querySelector('.one-click-cover-color').onclick = function(e){
+		e.stopPropagation();
 	}
 	divCover.onclick = function(e){
 		//console.log(e);
@@ -34,7 +37,7 @@ var divCover  = document.createElement('div');
 		chrome.runtime.sendMessage({action: "colorPicked",data:data});
 	}
 chrome.runtime.onMessage.addListener(function(message){
-	console.log(message)
+	//console.log(message)
 	switch(message.action){
 		case 'ctx':
 			let canvas = document.createElement("canvas"),
@@ -65,14 +68,16 @@ chrome.runtime.onMessage.addListener(function(message){
            		hash = 	document.getElementsByClassName('one-click-cover-hash')[0],
            		rgbData = [pixelData[0],pixelData[1],pixelData[2],pixelData[3]].join(', ');
 
-           	rgba.innerText = 'rgba(' + rgbData + ')';
-           	hash.innerText = rgbaToHex('(' + rgbData + ')');
-           	example.style['background-color'] = rgba.innerText;
+           	rgba.value = 'rgba(' + rgbData + ')';
+           	hash.value = rgbaToHex('(' + rgbData + ')');
+           	//console.log(example,rgba.innerText);
+           	example.style['background-color'] = rgba.value;
+           	//console.log(example.style['background-color'],example.style);
            	show.classList.add('one-click-cover-color-selected');
          }
          //document.body.appendChild(image);
          image.src = message.image;
-         console.log(image);
+         //console.log(image);
 			break;
 		case 'showCover':
 			document.getElementsByTagName('html')[0].classList.add('click1-picker-mode');
