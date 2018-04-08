@@ -74,6 +74,7 @@ chrome.runtime.onMessage.addListener(function(message){
            	example.style['background-color'] = rgba.value;
            	//console.log(example.style['background-color'],example.style);
            	show.classList.add('one-click-cover-color-selected');
+           	document.body.removeChild(canvas);
          }
          //document.body.appendChild(image);
          image.src = message.image;
