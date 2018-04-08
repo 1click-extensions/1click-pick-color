@@ -55,7 +55,7 @@ chrome.runtime.onMessage.addListener(function(message){
         	canvas.height = image.height * (bWidth/window.outerWidth);
       		//canvas.style.width = image.height + 'px';
            	ctx.drawImage(image,0,0,canvas.width,canvas.height);
-           	document.body.appendChild(canvas);
+           	//document.body.appendChild(canvas);
            // console.log(canvas);
            // console.log(request.data.x, request.data.y);
            
