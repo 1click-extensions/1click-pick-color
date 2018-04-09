@@ -1,6 +1,6 @@
 {
-	"new":{"message":"NEW"},
-"name": {"message": "Webpage & WebCam Screenshot" },
-"dir": {"message": "ltr" },
-"description": {"message": "Това е най-добрия начин да създавате снимка на уеб сайт. Ще имате възможност да запазвате и редактирате офлайн, да споделяте във Fa" }
+  "browser_action": {"message": "Start picking color" },
+  "ext_desc": {"message": "Pick color of any part in page" },
+  "ext_name": {"message": "1click Pick Color" }
 }
+

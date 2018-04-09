@@ -1,6 +1,6 @@
 {
-	"new":{"message":"NEW"},
-"name": {"message": "Webpage & WebCam Screenshot" },
-"dir": {"message": "ltr" },
-"description": {"message": "Acesta este cel mai bun pentru a crea imagini pentru pagini de internet.Poti salva si edita offline, poti posta pe Facebook,Evern.." }
+  "browser_action": {"message": "Start picking color" },
+  "ext_desc": {"message": "Pick color of any part in page" },
+  "ext_name": {"message": "1click Pick Color" }
 }
+
