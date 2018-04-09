@@ -73,6 +73,8 @@
     background: #e40000;
     color: #fff;
     font-weight: bold;
+    height: auto!important;
+    min-height: auto!important;
 }
 .one-click-cover-close:hover{
 	color: #000;

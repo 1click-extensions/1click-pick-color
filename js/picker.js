@@ -14,7 +14,7 @@ var divCover  = document.createElement('div');
 							'<span class="one-click-cover-child one-click-cover-input ">RGBA: <input type="test" class="one-click-cover-rgba"/></span>' +
 							'<span class="one-click-cover-child one-click-cover-input ">HEX: <input type="test" class="one-click-cover-input one-click-cover-hash"/></span>' +
 							'<span class="one-click-cover-child one-click-cover-example"></span>' +
-							'<span class="one-click-cover-child one-click-cover-before-select">Choose color from page</span>' +
+							'<span class="one-click-cover-child one-click-cover-before-select">' + chrome.i18n.getMessage("choose_color_from_page")  + '</span>' +
 							'<button type="button" class="one-click-cover-child one-click-cover-close">X</button>' +
 							'</div>';
 	document.body.append(divCover);

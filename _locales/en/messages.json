@@ -1,6 +1,7 @@
 {
   "browser_action": {"message": "Start picking color" },
   "ext_desc": {"message": "Pick color of any part in page" },
+  "choose_color_from_page": {"message": "Choose color from page" },
   "ext_name": {"message": "1click Pick Color" }
 }
 
