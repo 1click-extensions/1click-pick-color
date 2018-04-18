@@ -33,14 +33,14 @@ chrome.runtime.onMessage.addListener(
           
            })
         break;
-      case 'popupstarted':
-          chrome.tabs.query({'active': true},function(curTabs){
-          //console.log(curTabs)
-          if(curTabs[0] && curTabs[0] && curTabs[0].id){
-                //console.log(sender);
-            chrome.tabs.sendMessage(curTabs[0].id, {action:'colorPicked'});
-            }
-          });
-        break;
+      // case 'popupstarted':
+      //     chrome.tabs.query({'active': true},function(curTabs){
+      //     //console.log(curTabs)
+      //     if(curTabs[0] && curTabs[0] && curTabs[0].id){
+      //           //console.log(sender);
+      //       chrome.tabs.sendMessage(curTabs[0].id, {action:'colorPicked'});
+      //       }
+      //     });
+      //   break;
     }
 });
