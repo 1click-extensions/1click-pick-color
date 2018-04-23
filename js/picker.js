@@ -8,15 +8,17 @@ function rgbaToHex (rgba) {
     return ('#' + r.toString(16) + g.toString(16) + b.toString(16) + (a * 255).toString(16).substring(0,2));
 }
 var divCover  = document.createElement('div');
-	divCover.className = "one-click-cover";
+	divCover.id = "one-click-cover";
 	divCover.style.height = window.innerHeight + 'px';
-	divCover.innerHTML = '<div class="one-click-cover-color">' + 
-							'<span class="one-click-cover-child one-click-cover-input ">RGBA: <input type="test" class="one-click-cover-rgba"/></span>' +
-							'<span class="one-click-cover-child one-click-cover-input ">HEX: <input type="test" class="one-click-cover-input one-click-cover-hash"/></span>' +
-							'<span class="one-click-cover-child one-click-cover-example"></span>' +
-							'<span class="one-click-cover-child one-click-cover-before-select">' + chrome.i18n.getMessage("choose_color_from_page")  + '</span>' +
-							'<button type="button" class="one-click-cover-child one-click-cover-close">X</button>' +
-							'</div>';
+	divCover.innerHTML = '<div class="one-click-cover-color-wrp">' + 
+ 							'<div class="one-click-cover-color">' + 
+								'<span class="one-click-cover-child one-click-cover-input ">RGBA: <input type="test" class="one-click-cover-input one-click-cover-rgba"/></span>' +
+								'<span class="one-click-cover-child one-click-cover-input ">HEX: <input type="test" class="one-click-cover-input one-click-cover-hash"/></span>' +
+								'<span class="one-click-cover-child one-click-cover-example"></span>' +
+								'<span class="one-click-cover-child one-click-cover-before-select">' + chrome.i18n.getMessage("choose_color_from_page")  + '</span>' +
+								'<button type="button" class="one-click-cover-child one-click-cover-close">X</button>' +
+							'</div>' +
+						'</div>';
 	document.body.append(divCover);
 	divCover.querySelector('button').onclick = function(){
 		document.getElementsByTagName('html')[0].classList.remove('click1-picker-mode');
