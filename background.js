@@ -13,7 +13,9 @@ chrome.browserAction.onClicked.addListener(function(tab){
       //console.log(curTabs)
       if(curTabs[0] && curTabs[0] && curTabs[0].id){
         //console.log(curTabs[0].id, img);
-        chrome.tabs.sendMessage(curTabs[0].id, {action:'showCover'});
+        //chrome.tabs.sendMessage(curTabs[0].id, {action:'showCover'});
+        chrome.tabs.executeScript(null, {file: "js/picker.js"});
+        chrome.tabs.insertCSS(null, {file: "css/picker.css"});
     }
   });
  });

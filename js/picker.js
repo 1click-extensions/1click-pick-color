@@ -38,6 +38,7 @@ var divCover  = document.createElement('div');
 		}
 		chrome.runtime.sendMessage({action: "colorPicked",data:data});
 	}
+	document.getElementsByTagName('html')[0].classList.add('click1-picker-mode');
 chrome.runtime.onMessage.addListener(function(message){
 	//console.log(message)
 	switch(message.action){
@@ -76,55 +77,20 @@ chrome.runtime.onMessage.addListener(function(message){
            	example.style['background-color'] = rgba.value;
            	//console.log(example.style['background-color'],example.style);
            	show.classList.add('one-click-cover-color-selected');
-           	document.body.removeChild(canvas);
+           	//document.body.removeChild(canvas);
          }
          //document.body.appendChild(image);
          image.src = message.image;
          //console.log(image);
 			break;
-		case 'showCover':
-			document.getElementsByTagName('html')[0].classList.add('click1-picker-mode');
+		//case 'showCover':
+			//document.getElementsByTagName('html')[0].classList.add('click1-picker-mode');
 			//divCover.style.display = 'block';
-			break;
+		//	break;
 		case 'hideCover':
 			document.getElementsByTagName('html')[0].classList.remove('click1-picker-mode');
 			//divCover.style.display = 'block';
 			break;
 	}
 	return true;
-})
-// chrome.runtime.onMessage.addListener(function(message){
-// 	//var svgimg = document.createElementNS("http://www.w3.org/2000/svg", "image");
-// 	var divWrap  = document.createElement('div');
-// 	divWrap.className = "one-click-img-wrap";
-// 	divWrap.style.height = window.innerHeight + 'px';
-// 	divWrap.innerHTML = '';
-// 	//divWrap.innerHTML = '<canvas id="one-click-img-canvas"></canvas>';
-// 	//divWrap.innerHTML = '<svg id="mySvg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></svg>';
-// 	document.body.append(divWrap);
-// 	//var svgObj = document.body.querySelector('#mySvg');
-// 	console.log(divWrap)
-// 	var body = document.body,
-//     	html = document.documentElement,
-// 		docHeight = Math.max( body.scrollHeight, body.offsetHeight, 
-//                        html.clientHeight, html.scrollHeight, html.offsetHeight );
-// 	// var canvas = document.getElementById("one-click-img-canvas");
-// 	// var ctx = canvas.getContext("2d");
-// 	// canvas.style.height = docHeight + 'px';
-// 	// canvas.style.width = '100%';
-// 	var image = new Image();
-// 	image.onload = function() {
-// 	 // ctx.drawImage(image, 0, 0);
-// 	};
-// 	image.src = message;
-// 	divWrap.appendChild(image);
-// 	//divWrap.appendChild(canvas);
-// 	// svgimg.setAttribute( 'width', window.innerWidth );
-// 	// svgimg.setAttribute( 'height', docHeight );
-
-// 	// svgimg.setAttributeNS("http://www.w3.org/1999/xlink", 'xlink:href', message);
-// 	// svgimg.className = 'copy-from-me-svg';
-// 	//svgObj.appendChild(svgimg);
-// 	//svgObj.setAttribute( 'width', window.innerWidth );
-// 	//svgObj.setAttribute( 'height', docHeight );
-// });
+});
