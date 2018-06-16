@@ -7,7 +7,7 @@
           "activeTab"
         ],
     "background": {
-      "scripts": ["background.js"],
+      "scripts": ["background.js","js/rank-listener.js"],
       "persistent": false
     },
     "browser_action":{
