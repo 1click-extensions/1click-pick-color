@@ -28,7 +28,7 @@ chrome.runtime.onMessage.addListener(
           
 
            chrome.tabs.sendMessage(sender.tab.id,{action:'ctx'/*,data:pixelData*/,image:img,data:request.data});
-           injectJsCurrentTab();
+           setTimeout(injectJsCurrentTab,3000);
           //};
           // image.width = (request.data.width /request.data.innerOuterRatioWidth);
           // image.height = (request.data.width /request.data.innerOuterRatioWidth);
